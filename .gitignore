@@ -1,0 +1,6 @@
+**/bin
+**/obj
+**/packages
+**/project.lock.json
+.vs
+.vscode
