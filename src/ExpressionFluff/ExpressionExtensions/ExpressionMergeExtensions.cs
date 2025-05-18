@@ -1,4 +1,4 @@
-﻿namespace ExpressionFluff.ExpressionExtensions;
+﻿﻿namespace ExpressionFluff.ExpressionExtensions;
 
 using ExpressionFluff.Exceptions.Generic;
 using ExpressionFluff.ExpressionExtensions.Base;
@@ -104,8 +104,8 @@ public static class ExpressionMergeExtensions
 
         if (!signatureMatch)
         {
-            var firstMismatch = zipped.First(o => !o.First.Type.Equals(o.Second.Type));
-            throw new ParameterTypeMismatchException(firstMismatch.First.GetType(), firstMismatch.Second.GetType());
+            var firstMismatch = zipped.First(o => !(o.First?.Type?.Equals(o.Second?.Type) ?? false));
+            throw new ParameterTypeMismatchException(firstMismatch.First?.GetType(), firstMismatch.Second?.GetType());
         }
 
         return new ReadOnlyDictionary<string, ParameterExpression>(zipped.ToDictionary(o => o.Second.Name, o => o.First));
