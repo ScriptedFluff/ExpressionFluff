@@ -34,7 +34,7 @@ jobs:
       shell: pwsh
       
     - name: Restore dependencies
-      run: nuget restore $SOLUTION
+      run: dotnet nuget restore $SOLUTION
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
